@@ -1,0 +1,11 @@
+--- a/configs/certs/CA/burp_ca.orig	2012-09-23 13:25:12.840193453 +0200
++++ b/configs/certs/CA/burp_ca	2012-09-23 13:25:35.546182557 +0200
+@@ -178,7 +178,7 @@
+     exit 0
+   fi
+   mv ${dir}/newcerts/${serial}.pem ${dir}/certs/${serial}.pem
+-  c_rehash ${dir}/certs
++  /etc/pki/tls/misc/c_hash ${dir}/certs
+ fi
+ 
+ #revoke
