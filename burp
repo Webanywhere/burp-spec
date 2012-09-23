@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+# rhev-agentd - Startup script for the burp daemon
+#
+# chkconfig: 35 85 15
+# description: Startup/shutdown script for burp 
+# processname: burp 
+# config: /etc/burp/burp-server.conf
+# pidfile: /var/run/burp.server.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+agentd=/usr/sbin/burp
+prog=burp
+pidfile=/var/run/${prog}.server.pid
+
+lockfile=/var/lock/subsys/$prog
+
+RETVAL=0
+
+start() {
+    echo -n $"Starting $prog: "
+
+    daemon --pidfile=${pidfile} --user=root $agentd -c /etc/burp/burp-server.conf
+    RETVAL=$?
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc -p ${pidfile} -d 10 $agentd
+    RETVAL=$?
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile
+    return $retval
+}
+
+case "$1" in
+
+
+    start)
+        start
+        ;;
+
+    stop)
+        stop
+        ;;
+
+    status)
+        status -p ${pidfile} ${prog}
+        RETVAL=$?
+        ;;
+
+    restart)
+        stop
+        start
+        ;;
+
+    reload)
+        stop
+        start
+        ;;
+
+
+    condrestart)
+        if [ -f ${pidfile} ] ; then
+            stop
+            start
+        fi
+        ;;
+
+    *)
+        echo $"Usage: $prog {start|stop|restart|condrestart|status}"
+        exit 1
+esac
+
+exit $RETVAL
