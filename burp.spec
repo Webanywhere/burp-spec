@@ -41,12 +41,12 @@ rm -rf $RPM_BUILD_ROOT/usr/src
 
 %post
 # This adds the proper /etc/rc*.d links for the script
-/sbin/chkconfig --add /etc/rc.d/init.d/burp
+/sbin/chkconfig --add burp
 
 %preun
 if [ $1 -eq 0 ] ; then
-    /sbin/service /etc/rc.d/init.d/burp stop >/dev/null 2>&1
-    /sbin/chkconfig --del /etc/rc.d/init.d/burp
+    /sbin/service burp stop >/dev/null 2>&1
+    /sbin/chkconfig --del burp
 fi
 
 
@@ -64,6 +64,7 @@ fi
 %{_sysconfdir}/rc.d/init.d/burp
 %dir %attr(-, root, root)
 %{_localstatedir}/spool/burp
+%{_sysconfdir}/burp
 ## What macro?
 %config(noreplace) %{_sysconfdir}/burp/burp.conf
 %config(noreplace) %{_sysconfdir}/burp/burp-server.conf
