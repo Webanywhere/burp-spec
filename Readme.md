@@ -8,7 +8,7 @@ This spec is an attempt to build [Burp](http://burp.grke.net/) on RHEL systems.
 
     wget http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
     yum install ./epel-release-6-7.noarch.rpm -y --nogpg
-    yum install -y rpm-build rpmdevtools librsync-devel openssl-devel zlib-devel gcc make gcc-c++ ncurses-devel
+    yum install -y rpm-build rpmdevtools librsync-devel openssl-devel zlib-devel gcc make gcc-c++ ncurses-devel libacl-devel
     rpmdev-setuptree
     cd ~/rpmbuild/SOURCES
     wget "http://downloads.sourceforge.net/project/burp/burp-1.2.2%20%28stable%29/burp-1.2.2.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fburp%2F&ts=1328452547&use_mirror=kent"

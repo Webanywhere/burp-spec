@@ -3,7 +3,7 @@ Version: 1.3.12
 Release: 1%{?dist}
 License: AGPLv3
 URL: http://burp.grke.net/
-BuildRequires: librsync-devel openssl-devel zlib-devel ncurses-devel
+BuildRequires: librsync-devel openssl-devel zlib-devel ncurses-devel libacl-devel
 Source0: burp-1.3.12.tar.bz2
 Source1: burp
 Patch0: burp_ca.diff
