@@ -3,8 +3,7 @@ Version: 1.3.12
 Release: 1%{?dist}
 License: AGPLv3
 URL: http://burp.grke.net/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires: librsync-devel openssl-devel zlib-devel gcc make gcc-c++ ncurses-devel
+BuildRequires: librsync-devel openssl-devel zlib-devel ncurses-devel
 Source0: burp-1.3.12.tar.bz2
 Source1: burp
 Patch0: burp_ca.diff
@@ -40,9 +39,6 @@ install -m 0755 %{SOURCE1} %{buildroot}%{_initddir}
 # we don't want to keep the src directory
 rm -rf $RPM_BUILD_ROOT/usr/src
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %post
 # This adds the proper /etc/rc*.d links for the script
 /sbin/chkconfig --add /etc/rc.d/init.d/burp
@@ -55,7 +51,6 @@ fi
 
 
 %files
-%defattr(-, root, root, -)
 %{_sbindir}/burp
 %{_sbindir}/burp_ca
 %{_sbindir}/bedup
