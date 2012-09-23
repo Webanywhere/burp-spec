@@ -23,7 +23,7 @@ start() {
     echo -n $"Starting $prog: "
 
     daemon --pidfile=${pidfile} --user=root $agentd -c /etc/burp/burp-server.conf
-    RETVAL=$?
+    retval=$?
     echo
     [ $retval -eq 0 ] && touch $lockfile
     return $retval
@@ -32,7 +32,7 @@ start() {
 stop() {
     echo -n $"Stopping $prog: "
     killproc -p ${pidfile} -d 10 $agentd
-    RETVAL=$?
+    retval=$?
     echo
     [ $retval -eq 0 ] && rm -f $lockfile
     return $retval
