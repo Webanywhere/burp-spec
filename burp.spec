@@ -1,10 +1,10 @@
 Name: burp
-Version: 1.3.12
+Version: 1.3.32
 Release: 1%{?dist}
 License: AGPLv3
 URL: http://burp.grke.net/
 BuildRequires: librsync-devel openssl-devel zlib-devel ncurses-devel libacl-devel
-Source0: burp-1.3.12.tar.bz2
+Source0: burp-1.3.32.tar.bz2
 Source1: burp
 Patch0: burp_ca.diff
 Summary: BackUp and Restore Program
@@ -54,6 +54,7 @@ fi
 %{_sbindir}/burp
 %{_sbindir}/burp_ca
 %{_sbindir}/bedup
+%{_sbindir}/vss_strip
 %{_sysconfdir}/burp/autoupgrade/server/win32/script
 %{_sysconfdir}/burp/clientconfdir/incexc/example
 %{_sysconfdir}/burp/clientconfdir/testclient
@@ -64,7 +65,6 @@ fi
 %{_sysconfdir}/rc.d/init.d/burp
 %dir %attr(-, root, root)
 %{_localstatedir}/spool/burp
-%{_sysconfdir}/burp
 ## What macro?
 %config(noreplace) %{_sysconfdir}/burp/burp.conf
 %config(noreplace) %{_sysconfdir}/burp/burp-server.conf
@@ -73,6 +73,8 @@ fi
 %doc %{_mandir}/man8/*
 
 %changelog
+* Tue Jun 04 2013 Gonéri Le Bouder <goneri@rulezlan.org> - 1.3.32-1.el6
+- Upgrade to 1.3.32
 * Sun Sep 16 2012 Gonéri Le Bouder <goneri@rulezlan.org> - 1.3.12-1.el6
 - Upgrade to 1.3.12
 * Sun Feb 05 2012 Alice Kaerast <alice.kaerast@webanywhere.co.uk> - 1.2.2
