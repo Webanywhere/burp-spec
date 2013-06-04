@@ -54,6 +54,7 @@ fi
 %{_sbindir}/burp
 %{_sbindir}/burp_ca
 %{_sbindir}/bedup
+%{_sbindir}/vss_strip
 %{_sysconfdir}/burp/autoupgrade/server/win32/script
 %{_sysconfdir}/burp/clientconfdir/incexc/example
 %{_sysconfdir}/burp/clientconfdir/testclient
