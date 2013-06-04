@@ -11,11 +11,11 @@ This spec is an attempt to build [Burp](http://burp.grke.net/) on RHEL systems.
     yum install -y rpm-build rpmdevtools librsync-devel openssl-devel zlib-devel gcc make gcc-c++ ncurses-devel libacl-devel
     rpmdev-setuptree
     cd ~/rpmbuild/SOURCES
-    wget "http://downloads.sourceforge.net/project/burp/burp-1.2.2%20%28stable%29/burp-1.2.2.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fburp%2F&ts=1328452547&use_mirror=kent"
-    wget http://github.com/goneri/burp-spec/burp
-    wget http://github.com/goneri/burp-spec/burp_ca.diff
+    # download the 1.2.32.tar.bz2 tarball
+    wget https://raw.github.com/goneri/burp-spec/master/burp
+    wget https://raw.github.com/goneri/burp-spec/master/burp_ca.diff
     cd ~/rpmbuild/SPECS
-    wget http://github.com/goneri/burp-spec/burp.spec
+    wget https://raw.github.com/goneri/burp-spec/master/burp.spec
     rpmbuild -bb burp.spec
     rpm -Uvh ~/rpmbuild/RPMS/x86_64/burp-*.rpm
 
