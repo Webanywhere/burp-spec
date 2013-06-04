@@ -65,7 +65,6 @@ fi
 %{_sysconfdir}/rc.d/init.d/burp
 %dir %attr(-, root, root)
 %{_localstatedir}/spool/burp
-%{_sysconfdir}/burp
 ## What macro?
 %config(noreplace) %{_sysconfdir}/burp/burp.conf
 %config(noreplace) %{_sysconfdir}/burp/burp-server.conf
